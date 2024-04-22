@@ -1,0 +1,83 @@
+{
+	"layer": "top",
+	"position":"top",
+	"modules-left": ["mpris"],
+	"modules-center": ["clock"],
+	"output": ["HDMI-A-1","eDP-1"], 
+	"modules-right": ["bluetooth", "network", "wireplumber","backlight", "battery"],
+	"wireplumber": {
+	    "format": "  {icon} {volume}% ",
+	    "format-muted": "   mute ",
+	    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+	    "max-volume": 100,
+	    "format-icons": ["","","", "", " "],
+	    "reverse-scrolling": true,
+	    "scroll-step": 0.4
+	},
+    "custom/updates": {
+        "format": "{} ",
+        "exec": "~/.config/waybar/scripts/update",
+        "on-click": "~/.config/waybar/scripts/update update",
+        "on-click-right": "~/.config/waybar/scripts/update",
+        "interval": 1800,
+    },
+	"backlight": {
+		"reverse-scrolling": false,
+		"scroll-step": 0.6,
+	    "device": "intel_backlight",
+	    "format": "   {percent}% ",
+	},
+	"clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y (%R)}",
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		},
+		"sort-by-number": true,
+		"on-click": "activate",
+	},
+	"mpris": {
+		"format": "{status_icon} {title} - {artist}  ",
+		"status-icons": {
+			"paused": "  ",
+			"playing": "  "
+		},
+		"max-length":50,
+		"tooltip-format": "Player: {player_icon}{player} Info: {dynamic}"
+	},
+	"tray": {
+	    "icon-size": 15,
+	    "spacing": 20
+	},
+	"battery": {
+		"format": " {icon} {capacity}%  ",
+		"format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+		"format-charging": "  󰂄 {capacity}%  ",
+		"max-length": 16,
+	},
+	"network": {
+		"format-wifi": "  {icon} {essid} ",
+		"format": "  󰤭  ",
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+		"tooltip-format": "{signaldBm}dBm {essid} {frequency}GHz",
+		"on-click": "kitty --class floatterm -e nmtui",
+
+		"on-click-right": "nm-connection-editor",
+
+	},
+	"bluetooth": {
+		"format": " ",
+		"on-click": "kitty --class floatterm -e bluetooth",
+		"format-connected": "  ",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"tooltip-format": "{controller_alias}\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\n{num_connections}{device_battery_percentage}% connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
+	}
+}

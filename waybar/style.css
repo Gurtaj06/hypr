@@ -1,0 +1,133 @@
+* {
+	font-family: Jetbrains Mono Nerd Font;
+    color: @theme_text_color;;
+	/*font-family: Source Code Pro; */
+	font-size: 16px;
+	min-height: 30px;
+	margin-bottom: 1px;
+}
+
+@define-color background_box rgba(80,80,80,0.2);
+@define-color border_box #505050; /* border and shadow color */
+
+
+window#waybar {
+  background-image: url("/home/gurtaj/Downloads/cat_leaves_blur.png");
+ 	/*background: rgba(0,0,0,0.2);*/
+	border-radius: 0px;
+	border: 1px solid rgb(60,60,60);
+}
+
+tooltip {
+	background: alpha(@theme_base_color,0.5);
+	border: 1px solid rgb(60,60,60);
+	border-radius: 10px;
+}
+tooltip label{
+	font-family: Source Code Pro;
+	font-size: 16px;
+}
+
+
+/* Group Right 1 */
+#network {
+	border: 1px solid rgb(60,60,60);
+   	background-color: rgba(255, 255, 255, 0.05);
+   	   	
+	
+    border-radius: 0px 6px 6px 0px;
+    border-left: 0px transparent;
+
+    margin-top: 6px;
+    margin-right:6px;
+    margin-bottom: 6px;
+}
+#bluetooth {
+	border: 1px solid rgb(60,60,60);
+   	background-color: rgba(255, 255, 255, 0.05);
+   	
+    border-radius: 6px 0px 0px 6px;
+
+    border-right: 0px transparent;
+
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 20px;
+
+}
+
+/* Group Right 2 */
+#battery {
+	border: 1px solid rgb(60,60,60);
+   	background-color: rgba(255, 255, 255, 0.05);
+	
+	border-left: 0px transparent;
+
+	border-radius: 0px 6px 6px 0px;
+
+
+	margin-right: 6px;
+	
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#backlight {
+	border: 1px solid rgb(60,60,60);
+  border-left:0px;
+   	background-color: rgba(255, 255, 255, 0.05);
+	   	
+    border-radius: 0px 0px 0px 0px;
+
+    border-right: 0px transparent;
+
+    margin-top: 6px;
+    margin-bottom: 6px;
+    
+    margin-left: 0px;
+} 
+#wireplumber {
+	border: 1px solid rgb(60,60,60);
+   	background-color: rgba(255, 255, 255, 0.05);
+   	
+    border-radius: 6px 0px 0px 6px;
+
+    border-right: 0px transparent;
+    border-left: 0px transparent;
+   
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#battery.charging {
+	border-left: 1px solid rgba(255,255,255,0.2);
+	background-color:  rgba(166, 227, 161, 0.25);
+}
+
+
+/* Group Center */
+
+#clock {
+	border: 1px solid @border_box;
+    border-radius: 6px;
+	
+    margin-top: 5px;
+    margin-bottom: 5px;
+padding: 0px 6px ;
+  background: rgba(255,255,255, 0.05);
+  }
+
+
+/* Group Left */
+#mpris {
+	border: 1px solid rgb(60,60,60);
+   	background-color: rgba(255, 255, 255, 0.05);
+   	
+    border-radius: 6px 6px 6px 6px;
+
+	font-size: 16px;
+margin: 6px 6px ;
+}
+#mpris.playing {
+	background-color: rgba(203, 166, 247, 0.2);
+}
